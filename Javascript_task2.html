@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Task 2</title>
+
+    <script>
+      function sortStringAlphabetically(inputString) {
+        const sortedString = inputString.split("").sort().join("");
+        return sortedString;
+      }
+
+      function displaySortedString() {
+        const inputString = document.getElementById("inputString").value;
+        const sortedString = sortStringAlphabetically(inputString);
+        document.getElementById(
+          "result"
+        ).innerHTML = `Sorted String: ${sortedString}`;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Alphabetical Order</h1>
+    <label for="inputString">Enter a String: </label>
+    <input type="text" id="inputString" />
+    <button type="button" onclick="displaySortedString()">Sort</button>
+    <p id="result"></p>
+  </body>
+</html>
