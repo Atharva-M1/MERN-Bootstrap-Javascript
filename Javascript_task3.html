@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Task 3</title>
+
+    <script>
+      function multiply() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+
+        if (isNaN(num1) || isNaN(num2)) {
+          document.getElementById("result").innerHTML =
+            "Please enter valid numbers.";
+          return;
+        }
+
+        const multiplicationResult = num1 * num2;
+
+        document.getElementById(
+          "result"
+        ).innerHTML = `Multiplication Result: ${multiplicationResult}`;
+      }
+
+      function divide() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+
+        if (isNaN(num1) || isNaN(num2)) {
+          document.getElementById("result").innerHTML =
+            "Please enter valid numbers.";
+          return;
+        }
+
+        if (num2 === 0) {
+          document.getElementById("result").innerHTML =
+            "Division by zero is not allowed.";
+          return;
+        }
+
+        const divisionResult = num1 / num2;
+
+        document.getElementById(
+          "result"
+        ).innerHTML = `Division Result: ${divisionResult}`;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Multiplication and Division Calculator</h1>
+    <label for="num1">Enter Number 1: </label>
+    <input type="text" id="num1" />
+    <br />
+    <label for="num2">Enter Number 2: </label>
+    <input type="text" id="num2" />
+    <br />
+    <button type="button" onclick="multiply()">Multiply</button>
+    <button type="button" onclick="divide()">Divide</button>
+    <p id="result"></p>
+  </body>
+</html>
