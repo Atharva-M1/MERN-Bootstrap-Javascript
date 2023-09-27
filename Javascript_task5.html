@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Task 5</title>
+    <style>
+      table {
+        margin-top: 15%;
+      }
+      * {
+        font-size: large;
+      }
+      td {
+        text-align: right;
+        padding-block-end: 15px;
+        padding-right: 10px;
+      }
+      input {
+        float: left;
+        padding: 5px;
+      }
+    </style>
+    <script>
+      function validate() {
+        name = document.getElementById("name").value;
+        email = document.getElementById("email").value;
+        url = document.getElementById("url").value;
+        msg = document.getElementById("msg").value;
+        var cnt = 0;
+        if (name.length < 6) {
+          cnt++;
+          document.getElementById("namemsg").innerText =
+            "This field is required";
+          document.getElementById("namemsg").style.color = "red";
+          document.getElementById("name").style.borderColor = "red";
+        } else {
+          document.getElementById("namemsg").innerText = "";
+          document.getElementById("name").style.borderColor = "";
+        }
+
+        if (!email.match(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/)) {
+          cnt++;
+          document.getElementById("emailmsg").innerText =
+            "A valid email address is required";
+          document.getElementById("emailmsg").style.color = "red";
+          document.getElementById("email").style.borderColor = "red";
+        } else {
+          document.getElementById("emailmsg").innerText = "";
+          document.getElementById("email").style.borderColor = "";
+        }
+
+        if (
+          !url.match(
+            /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
+          )
+        ) {
+          cnt++;
+          document.getElementById("urlmsg").innerText =
+            "A valid url is required";
+          document.getElementById("urlmsg").style.color = "red";
+          document.getElementById("url").style.borderColor = "red";
+        } else {
+          document.getElementById("urlmsg").innerText = "";
+          document.getElementById("url").style.borderColor = "";
+        }
+
+        if (msg.length == 0) {
+          cnt++;
+          document.getElementById("errmsg").innerText =
+            "This field is required";
+          document.getElementById("errmsg").style.color = "red";
+          document.getElementById("msg").style.borderColor = "red";
+        } else {
+          document.getElementById("errmsg").innerText = "";
+          document.getElementById("msg").style.borderColor = "";
+        }
+
+        if (cnt > 0) {
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <form onsubmit="return validate()" action="index.html">
+      <table align="center">
+        <tr>
+          <td>Name:</td>
+          <td><input type="text" id="name" name="name" /></td>
+          <td><span id="namemsg"></span></td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><input type="text" name="email" id="email" /></td>
+          <td><span id="emailmsg"></span></td>
+        </tr>
+        <tr>
+          <td>Website:</td>
+          <td><input type="text" name="url" id="url" /></td>
+          <td><span id="urlmsg"></span></td>
+        </tr>
+        <tr>
+          <td>Message:</td>
+          <td><textarea name="msg" id="msg" cols="25" rows="5"></textarea></td>
+          <td><span id="errmsg"></span></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" name="submit" id="submit" value="Submit" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
