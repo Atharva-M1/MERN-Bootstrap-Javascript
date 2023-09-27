@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Task 1</title>
+
+    <script>
+      function reverseNumber() {
+        const inputNumber = document.getElementById("numberInput").value;
+        const reversedNumber = reverse(inputNumber);
+        document.getElementById(
+          "result"
+        ).innerHTML = `Reversed Number: ${reversedNumber}`;
+      }
+
+      function reverse(number) {
+        const numString = number.toString();
+        const reversedString = numString.split("").reverse().join("");
+        return parseInt(reversedString);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Number Reversal</h1>
+    <form>
+      <label for="numberInput">Enter a Number: </label>
+      <input type="text" id="numberInput" />
+      <button type="button" onclick="reverseNumber()">Reverse</button>
+    </form>
+    <p id="result"></p>
+  </body>
+</html>
